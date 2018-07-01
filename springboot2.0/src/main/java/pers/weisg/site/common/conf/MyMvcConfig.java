@@ -5,6 +5,8 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -12,6 +14,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import pers.weisg.site.filter.UserFilter;
 import pers.weisg.site.interceptor.MyInterceptor;
+
+import java.nio.charset.Charset;
 
 
 /** 
@@ -29,6 +33,12 @@ public class MyMvcConfig extends WebMvcConfigurationSupport {
 		//registry.addInterceptor(myInterceptor).addPathPatterns("/**").excludePathPatterns("/a/*");
 		super.addInterceptors(registry);
 	}
+
+    @Bean
+    public HttpMessageConverter<String> responseBodyConverter() {
+        StringHttpMessageConverter converter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
+        return converter;
+    }
 	
 	//@Bean
     public FilterRegistrationBean testFilterRegistration() {

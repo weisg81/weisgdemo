@@ -1,14 +1,13 @@
-package pers.weisg.site.conf;
+package pers.weisg.site.common.conf;
 
-import javax.sql.DataSource;
-
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.zaxxer.hikari.HikariDataSource;
+import javax.sql.DataSource;
 
 /** 
  * @Description: TODO(用一句话描述该文件做什么)

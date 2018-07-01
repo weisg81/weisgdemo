@@ -3,7 +3,6 @@ package pers.weisg.site;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /** 
@@ -12,9 +11,10 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @date 2018年2月15日   
  */
 @SpringBootApplication
-@ServletComponentScan
+//@ServletComponentScan
 public class SiteApplication extends SpringBootServletInitializer{
-	
+
+
 	/**
 	 * @Description: 为了实现独立war在tomcat中部署
 	 * 				需要继承SpringBootServletInitializer并重写configure方法

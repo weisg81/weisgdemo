@@ -1,4 +1,4 @@
-package pers.weisg.site.conf;
+package pers.weisg.site.common.conf;
 
 import org.apache.commons.lang3.Validate;
 import org.springframework.beans.BeansException;

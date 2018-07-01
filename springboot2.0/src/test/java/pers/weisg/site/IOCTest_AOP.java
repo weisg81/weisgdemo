@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import pers.weisg.site.aop.MathCalculator;
-import pers.weisg.site.conf.MainConfigOfAOP;
+import pers.weisg.site.common.conf.MainConfigOfAOP;
 
 /**
  * @Description: TODO(用一句话描述该文件做什么)

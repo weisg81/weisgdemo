@@ -1,4 +1,4 @@
-package pers.weisg.site.conf;
+package pers.weisg.site.common.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

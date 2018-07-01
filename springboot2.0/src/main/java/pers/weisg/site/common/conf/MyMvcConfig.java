@@ -1,12 +1,15 @@
-package pers.weisg.site.conf;
+package pers.weisg.site.common.conf;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-
 import pers.weisg.site.filter.UserFilter;
 import pers.weisg.site.interceptor.MyInterceptor;
 
@@ -27,7 +30,7 @@ public class MyMvcConfig extends WebMvcConfigurationSupport {
 		super.addInterceptors(registry);
 	}
 	
-	@Bean
+	//@Bean
     public FilterRegistrationBean testFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         UserFilter userFilter = new UserFilter();
@@ -37,6 +40,20 @@ public class MyMvcConfig extends WebMvcConfigurationSupport {
         registration.setName("userFilter");//设置优先级
         registration.setOrder(1);//设置优先级
         return registration;
+    }
+
+    @Bean
+    public FilterRegistrationBean corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("*");
+        config.addAllowedHeader(CorsConfiguration.ALL);
+        config.addAllowedMethod(CorsConfiguration.ALL);
+        source.registerCorsConfiguration("/**", config);
+        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+        bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        return bean;
     }
 	
 }

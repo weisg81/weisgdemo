@@ -52,6 +52,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
      */
     public static <T> T getBean(Class<T> requiredType) {
         assertContextInjected();
+        //private ExampleService exampleService = SpringContextHolder.getBean(ExampleService.class);
         return applicationContext.getBean(requiredType);
     }
     

@@ -3,7 +3,6 @@ package pers.weisg.site.common.conf;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-
 import pers.weisg.site.aop.LogAspects;
 import pers.weisg.site.aop.MathCalculator;
 
